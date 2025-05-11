@@ -2,39 +2,68 @@ import React from 'react';
 
 function App() {
   return (
-    <div className="font-sans bg-[#F2F9FC] text-gray-800">
+    <div className="bg-white text-gray-700 font-sans">
       
       {/* Hero Section */}
-      <section className="text-center py-16 bg-[#1034A6] text-white">
-        <h1 className="text-4xl font-bold mb-4">Selamatkan Makanan, Hemat & Lezat</h1>
-        <p className="mb-8">Ambil makanan berkualitas dari resto favoritmu sebelum terbuang.</p>
-        <button className="bg-[#FEBE00] text-black font-bold py-2 px-6 rounded-full">Gabung Sekarang</button>
-      </section>
+      <header className="bg-gradient-to-r from-orange-500 to-green-500 py-16 px-4 text-white">
+        <div className="max-w-5xl mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Selamatkan Makanan Favoritmu dalam Satu Klik!
+          </h1>
+          <p className="mb-8">
+            Pesan makanan lezat dengan harga spesial sekaligus bantu kurangi food waste.
+          </p>
+          <button className="bg-green-700 hover:bg-green-600 px-6 py-3 rounded-lg font-bold">
+            Download Aplikasi
+          </button>
+        </div>
+      </header>
 
-      {/* How It Works */}
-      <section className="py-12">
-        <h2 className="text-center text-2xl font-bold mb-8">Cara Pakainya Simpel</h2>
-        <div className="flex flex-col md:flex-row justify-center items-center gap-8 px-4">
-          <Step icon="🔍" title="Temukan Box" desc="Cari box makanan yang tersedia dekat kamu." />
-          <Step icon="📍" title="Ambil di Resto" desc="Ambil langsung ke lokasi resto." />
-          <Step icon="🍱" title="Nikmati Hematnya" desc="Rasakan makanan berkualitas dengan harga hemat." />
+      {/* How it Works */}
+      <section className="py-16 text-center max-w-6xl mx-auto">
+        <h2 className="text-2xl font-bold mb-8">Cara Kerja Foosh</h2>
+        <div className="grid md:grid-cols-4 gap-6 px-4">
+          <Step icon="📱" title="Download Foosh App" />
+          <Step icon="📍" title="Pilih Box Makanan" />
+          <Step icon="🛵" title="Pickup Langsung" />
+          <Step icon="🍽️" title="Nikmati dengan Hemat" />
         </div>
       </section>
 
-      {/* CTA Partner Restoran */}
-      <section className="py-16 bg-[#1034A6] text-white text-center">
-        <h2 className="text-2xl font-bold mb-4">Punya Restoran?</h2>
-        <p className="mb-8">Ubah surplus jadi profit. Bergabung dengan Foosh sekarang.</p>
-        <button className="bg-[#FEBE00] text-black font-bold py-2 px-6 rounded-full">Jadi Partner Kami</button>
+      {/* Benefits Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center px-4">
+          <img className="rounded-lg shadow-lg" src="https://source.unsplash.com/featured/?food,restaurant" alt="Foosh Benefits" />
+          <div>
+            <h3 className="text-3xl font-bold mb-4">Kenapa harus Foosh?</h3>
+            <ul className="space-y-4 text-lg">
+              <li>✅ <b>Hemat maksimal</b>: Harga jauh lebih murah dari harga normal.</li>
+              <li>✅ <b>Makanan berkualitas</b>: Dipilih khusus dari resto terbaik.</li>
+              <li>✅ <b>Mudah dan Cepat</b>: Order, ambil, nikmati!</li>
+              <li>✅ <b>Ikut Menjaga Lingkungan</b>: Bantu kurangi limbah makanan.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Download App */}
+      <section className="py-16 text-center">
+        <h2 className="text-2xl font-bold mb-4">Siap Bergabung dengan Foosh?</h2>
+        <button className="bg-green-700 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-bold">
+          Download Aplikasi
+        </button>
       </section>
 
       {/* Footer */}
-      <footer className="py-8 text-center bg-gray-800 text-white">
-        <p>©2025 Foosh. All Rights Reserved.</p>
-        <div className="mt-2">
-          <a href="#" className="px-2">Instagram</a>|
-          <a href="#" className="px-2">Email</a>|
-          <a href="#" className="px-2">Privacy Policy</a>
+      <footer className="py-8 bg-gray-900 text-white text-center">
+        <div className="max-w-5xl mx-auto px-4">
+          <p className="mb-2">©2025 Foosh Indonesia</p>
+          <div className="space-x-4">
+            <a href="#" className="hover:text-orange-400">Tentang Kami</a>
+            <a href="#" className="hover:text-orange-400">FAQ</a>
+            <a href="#" className="hover:text-orange-400">Kontak</a>
+            <a href="#" className="hover:text-orange-400">Kebijakan Privasi</a>
+          </div>
         </div>
       </footer>
 
@@ -42,13 +71,10 @@ function App() {
   );
 }
 
-const Step = ({icon, title, desc}) => (
-  <div className="text-center max-w-xs">
-    <div className="bg-[#FEBE00] rounded-full h-16 w-16 mx-auto flex items-center justify-center mb-2 text-2xl">
-      {icon}
-    </div>
-    <h3 className="font-bold mb-1">{title}</h3>
-    <p>{desc}</p>
+const Step = ({icon, title}) => (
+  <div className="flex flex-col items-center">
+    <div className="text-4xl bg-green-100 rounded-full p-4 mb-2">{icon}</div>
+    <h4 className="font-semibold">{title}</h4>
   </div>
 );
 
