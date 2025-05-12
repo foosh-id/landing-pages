@@ -2,6 +2,23 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+.horizontal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.horizontal-list li {
+  text-align: center;
+}
+
+.horizontal-list li img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 5px;
+}
 }
 
 header {
