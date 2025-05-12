@@ -1,5 +1,15 @@
 export default {
-  content: ["./src/**/*.{js,jsx,html}"],
-  theme: { extend: {} },
+  content: [
+    "./index.html",
+    "./src/**/*.{js,jsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        'happyfresh-orange': '#FF6600',
+        'happyfresh-green': '#4CAF50',
+      },
+    },
+  },
   plugins: [],
 };
