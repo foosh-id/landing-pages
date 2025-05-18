@@ -1,8 +1,8 @@
-import '../index.css';
-import downloadIcon from '../assets/howitworks-download.png';
-import bakeryPickupIcon from '../assets/howitworks-bakery.png';
-import deliveryIcon from '../assets/howitworks-rider.png';
-import eatingIcon from '../assets/howitworks-eating.png';
+import '../../index.css';
+import downloadIcon from '../../assets/howitworks-download.png';
+import bakeryPickupIcon from '../../assets/howitworks-bakery.png';
+import deliveryIcon from '../../assets/howitworks-rider.png';
+import eatingIcon from '../../assets/howitworks-eating.png';
 
 const steps = [
   {

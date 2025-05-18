@@ -1,8 +1,9 @@
-import React from 'react';
-import Header from './components/Header';
-import HeroSection from './components/HeroSection';
-import HowItWorks from './components/HowItWorks.jsx';
-import Footer from './components/Footer';
+// src/App.jsx
+import Header from './components/layout/Header';
+import HeroSection from './components/layout/HeroSection';
+import HowItWorks from './components/layout/HowItWorks';
+import MomentsSection from './components/layout/MomentsSection';
+import Footer from './components/layout/Footer';
 
 function App() {
   return (

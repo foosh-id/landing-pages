@@ -1,5 +1,5 @@
-import '../index.css';
-import FooshLogo from '../assets/FooshLogo_SecondaryLogo.png';
+import '../../index.css';
+import FooshLogo from '../../assets/FooshLogo_SecondaryLogo.png';
 
 export default function Header() {
   return (

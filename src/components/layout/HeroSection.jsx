@@ -1,7 +1,7 @@
-import '../index.css';
-import heroImage from '../assets/hero-image.png';
-import googlePlay from '../assets/google-play-badge.png';
-import appStore from '../assets/app-store-badge.svg';
+import '../../index.css';
+import heroImage from '../../assets/hero-image.png';
+import googlePlay from '../../assets/google-play-badge.png';
+import appStore from '../../assets/app-store-badge.svg';
 
 function HeroSection() {
   return (
