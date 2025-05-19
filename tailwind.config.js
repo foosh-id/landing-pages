@@ -1,3 +1,6 @@
+// tailwind.config.js
+const aspectRatio = require('@tailwindcss/aspect-ratio');
+
 export default {
   content: [
     "./index.html",
@@ -6,10 +9,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        'happyfresh-orange': '#FF6600',
-        'happyfresh-green': '#4CAF50',
+        fooshRed: '#E53935',
+        fooshBlue: '#2196F3',
       },
     },
   },
-  plugins: [],
+  plugins: [aspectRatio],
 };

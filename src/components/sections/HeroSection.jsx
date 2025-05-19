@@ -1,4 +1,4 @@
-import '../../index.css';
+import React from "react";
 import heroImage from '../../assets/hero-image.png';
 import googlePlay from '../../assets/google-play-badge.png';
 import appStore from '../../assets/app-store-badge.svg';

@@ -1,4 +1,4 @@
-import '../../index.css';
+import React from "react";
 import downloadIcon from '../../assets/howitworks/howitworks-download.png';
 import bakeryPickupIcon from '../../assets/howitworks/howitworks-bakery.png';
 import deliveryIcon from '../../assets/howitworks/howitworks-rider.png';
