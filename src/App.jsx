@@ -1,19 +1,20 @@
-// src/App.jsx
-import Header from './components/layout/Header';
-import HeroSection from './components/layout/HeroSection';
-import HowItWorks from './components/layout/HowItWorks';
-import MomentsSection from './components/layout/MomentsSection';
-import Footer from './components/layout/Footer';
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+import HeroSection from "./components/sections/HeroSection";
+import HowItWorksSection from "./components/sections/HowItWorks";
+import MomentsSection from "./components/moments/MomentsSection";
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
-      <HeroSection />
-      {/* <VideoSection /> */}
-      <HowItWorks/>
+      <main>
+        <HeroSection />
+        <HowItWorksSection />
+        <MomentsSection />
+      </main>
       <Footer />
-    </div>
+    </>
   );
 }
 

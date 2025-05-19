@@ -1,8 +1,8 @@
 import '../../index.css';
-import downloadIcon from '../../assets/howitworks-download.png';
-import bakeryPickupIcon from '../../assets/howitworks-bakery.png';
-import deliveryIcon from '../../assets/howitworks-rider.png';
-import eatingIcon from '../../assets/howitworks-eating.png';
+import downloadIcon from '../../assets/howitworks/howitworks-download.png';
+import bakeryPickupIcon from '../../assets/howitworks/howitworks-bakery.png';
+import deliveryIcon from '../../assets/howitworks/howitworks-rider.png';
+import eatingIcon from '../../assets/howitworks/howitworks-eating.png';
 
 const steps = [
   {
@@ -10,7 +10,7 @@ const steps = [
     title: 'Download App',
     desc: 'Unduh aplikasi Foosh dan temukan makanan surprise hemat.',
     icon: downloadIcon,
-    linkText: 'Coba Aplikasinya Sekarang →',
+    linkText: 'Buka Aplikasinya →',
     linkUrl: 'https://play.google.com/store/apps/details?id=com.foosh.app',
   },
   {
@@ -24,7 +24,7 @@ const steps = [
   {
     id: 3,
     title: 'Pesanan Diantar',
-    desc: 'Rider Foosh mengantar makanan ke lokasi kamu.',
+    desc: 'Rider Foosh langsung mengantar makanan ke lokasi kamu.',
     icon: deliveryIcon,
     linkText: 'Daftar Jadi Rider Foosh →',
     linkUrl: 'https://foosher.foosh.id',
@@ -32,16 +32,16 @@ const steps = [
   {
     id: 4,
     title: 'Nikmati & Selamatkan',
-    desc: 'Nikmati makanan lezat dan bantu kurangi food waste!',
+    desc: 'Nikmati makanan lezat dan bantu kurangi food waste.',
     icon: eatingIcon,
-    linkText: 'Cerita Makanan Terselamatkan →',
+    linkText: 'Lihat Dampaknya →',
     linkUrl: 'https://community.foosh.id',
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section className="how-it-works-wrapper">
+    <section id="how-it-works" className="how-it-works-wrapper">
       <div className="how-it-works-container">
         {steps.map((step) => (
           <div key={step.id} className="how-it-works-step">
@@ -52,7 +52,12 @@ export default function HowItWorks() {
             />
             <h3 className="how-it-works-title">{step.title}</h3>
             <p className="how-it-works-desc">{step.desc}</p>
-            <a href={step.linkUrl} className="how-it-works-link">
+            <a
+              href={step.linkUrl}
+              className="how-it-works-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {step.linkText}
             </a>
           </div>
