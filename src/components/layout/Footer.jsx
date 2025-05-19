@@ -1,4 +1,4 @@
-import '../../index.css';
+import '../../styles/tailwind.css';
 
 export default function Footer() {
   return (

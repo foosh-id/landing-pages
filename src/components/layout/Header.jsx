@@ -1,4 +1,4 @@
-import '../../index.css';
+import '../../styles/tailwind.css';
 import FooshLogo from '../../assets/FooshLogo_SecondaryLogo.png';
 
 export default function Header() {
