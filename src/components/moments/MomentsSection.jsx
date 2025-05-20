@@ -1,25 +1,12 @@
-import React from "react";
+import React from 'react';
 import '../../styles/tailwind.css';
-import picnic from '../../assets/moments/picnic.png';
 
-function MomentsSection() {
+const MomentsSection = () => {
   return (
-    <section className="bg-white py-24 px-6">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12">
-        {/* IMAGE RIGHT */}
-        <div className="w-full flex justify-center md:justify-end">
-          <div className="w-full max-w-[500px] aspect-[4/3] overflow-hidden rounded-xl shadow-lg">
-            <img
-              src={picnic}
-              alt="Everything you crave, delivered."
-              loading="lazy"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-
+    <section className="py-24 px-6">
+      <div className="max-w-7xl mx-auto flex md:flex-row flex-col items-center">
         {/* TEXT LEFT */}
-        <div className="text-left space-y-6 md:pr-12">
+        <div className="md:w-1/2 text-left space-y-6">
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
             Everything you crave, delivered.
           </h2>
@@ -27,15 +14,24 @@ function MomentsSection() {
             Your favorite local restaurants
           </h3>
           <p className="text-lg text-gray-600 max-w-md">
-            Your favorite local restaurants. Get a slice of pizza or the whole pie delivered, or pick up house lo mein from the Chinese takeout spot you’ve been meaning to try.
+            Get a slice of pizza or the whole pie delivered, or pick up house lo mein from the Chinese takeout spot you’ve been meaning to try.
           </p>
-          <button className="bg-fooshRed hover:bg-red-600 text-white px-6 py-3 rounded-full text-sm font-semibold transition">
+          <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">
             Find restaurants
           </button>
+        </div>
+
+        {/* IMAGE RIGHT */}
+        <div className="md:w-1/2 flex justify-center">
+          <img
+            src="/assets/moments/picnic.png"
+            alt="Everything you crave, delivered."
+            className="w-full max-w-md rounded-xl shadow-lg object-cover"
+          />
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default MomentsSection;
