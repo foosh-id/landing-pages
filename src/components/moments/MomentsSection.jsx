@@ -4,10 +4,10 @@ import picnicImg from '../../assets/moments/picnic.png';
 const MomentsSection = () => {
   return (
     <section className="bg-white">
-      <div className="max-w-screen-xl mx-auto grid grid-cols-2 md:grid-cols-2 items-start py-24 px-6 md:px-16 gap-12">
+      <div className="max-w-screen-xl mx-auto grid grid-cols-2 md:grid-cols-2 items-center py-24 px-6 md:px-16 gap-24">
         
         {/* TEXT LEFT */}
-        <div className="flex justify-start">
+        <div className="flex justify-end mt-36">
           <div className="space-y-6 max-w-[480px] px-2 md:px-0 self-start">
             <h2 className="text-[2.8rem] md:text-5xl font-extrabold text-gray-900 leading-tight">
               Everything you crave, delivered.
@@ -27,13 +27,14 @@ const MomentsSection = () => {
         </div>
 
         {/* IMAGE RIGHT */}
-        <div className="flex justify-end items-start">
+        <div className="flex justify-start">
           <img
             src={picnicImg}
             alt="Everything you crave, delivered."
             className="w-full max-w-[520px] object-cover rounded-xl shadow-lg self-start"
           />
         </div>
+
       </div>
     </section>
   );
