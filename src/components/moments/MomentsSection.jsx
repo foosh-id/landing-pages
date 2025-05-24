@@ -58,98 +58,112 @@ const BUTTON_PROPS = {
   type: "button",
 };
 
+const cardBase = `
+  bg-[#FFF5F0]
+  rounded-2xl shadow-lg border border-[#fff6ed] overflow-hidden
+  flex flex-col md:flex-row-reverse
+  w-full
+  px-0
+`;
+
+const cardOuter = `
+  w-full flex justify-center
+`;
+
+const cardMobileMax = `
+  w-full
+  max-w-[430px] mx-4
+  xs:max-w-[470px]
+  sm:max-w-[550px] sm:mx-auto
+  md:max-w-3xl
+`;
+
+const textPadding = `
+  flex flex-col justify-center
+  px-6 py-7 md:px-8 md:py-10
+`;
+
 const MomentsSection = () => (
-  // BAGIAN PALING PENTING px-4 untuk padding mobile, md:px-0 di desktop biar center rapih
-  <section className="w-full min-h-[1px] bg-[#F8F6F3] flex flex-col items-center py-4 px-4 md:px-0 sm:py-6">
-    {/* Boxed Cards */}
-    <div className="flex flex-col w-full items-center gap-10">
-      {/* MOMENTS CARD */}
-      <div className="
-        max-w-[540px] w-full
-        mx-auto
-        bg-[#FFF5F0]
-        shadow-lg
-        border border-[#fff6ed]
-        rounded-2xl
-        flex flex-col
-        p-0
-      ">
-        <img
-          src={picnicImg}
-          alt="Enjoying Foosh"
-          className="w-full h-[175px] object-cover object-center rounded-t-2xl"
-          draggable={false}
-        />
-        <div className="px-5 pt-6 pb-4 flex flex-col">
-          <h1 className="text-[1.35rem] sm:text-[1.7rem] font-extrabold text-[#222] mb-2 leading-tight">
-            Everything you crave, delivered.
-          </h1>
-          <h2 className="text-[1.55rem] sm:text-[1.7rem] font-extrabold text-[#222] mb-2 leading-tight">
-            Your favorite local restaurants
-          </h2>
-          <p className="text-[0.98rem] text-[#454545] mb-4 leading-normal">
-            Get a slice of pizza or the whole pie delivered, or pick up house lo mein from the Chinese takeout spot you've been meaning to try.
-          </p>
-          <div className="w-full flex justify-start">
-            <button className={BUTTON_FIND} {...BUTTON_PROPS}>
-              Find restaurants
-            </button>
+  <section className="w-full min-h-[1px] bg-[#F8F6F3] flex flex-col items-center px-4 sm:px-6 md:px-8 py-10">
+    {/* CONTENT CARDS */}
+    <div className="flex flex-col items-center gap-y-10 w-full">
+      {/* Moments Card */}
+      <div className={cardOuter}>
+        <div className={`${cardBase} ${cardMobileMax}`}>
+          <div className="w-full md:w-1/2 h-[180px] xs:h-[210px] sm:h-[240px] md:h-[290px] flex-shrink-0">
+            <img
+              src={picnicImg}
+              alt="Enjoying Foosh"
+              className="w-full h-full object-cover object-center block"
+              draggable={false}
+            />
+          </div>
+          <div className={`w-full md:w-1/2 ${textPadding}`}>
+            <div className="max-w-[520px] w-full">
+              <h1 className="text-[1.3rem] xs:text-[1.55rem] sm:text-[1.7rem] md:text-[2rem] font-extrabold text-[#222] antialiased mb-2 leading-tight">
+                Everything you crave, delivered.
+              </h1>
+              <h2 className="text-[1.1rem] xs:text-[1.18rem] sm:text-[1.22rem] md:text-[1.3rem] font-bold text-[#222] mb-2 leading-tight">
+                Your favorite local restaurants
+              </h2>
+              <p className="text-[0.97rem] xs:text-[1.04rem] sm:text-[1.09rem] text-[#454545] mb-4 leading-normal">
+                Get a slice of pizza or the whole pie delivered, or pick up house lo mein from the Chinese takeout spot you've been meaning to try.
+              </p>
+              <div className="w-full flex justify-start mt-2">
+                <button className={BUTTON_FIND} {...BUTTON_PROPS}>
+                  Find restaurants
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* DASH PASS CARD */}
-      <div className="
-        max-w-[540px] w-full
-        mx-auto
-        bg-[#FFF5F0]
-        shadow-lg
-        border border-[#fff6ed]
-        rounded-2xl
-        flex flex-col
-        p-0
-      ">
-        <img
-          src={dashPassImg}
-          alt="DashPass Banner"
-          className="w-full h-[140px] object-cover object-center rounded-t-2xl"
-          draggable={false}
-        />
-        <div className="px-5 pt-6 pb-4 flex flex-col">
-          <h1 className="text-[1.28rem] sm:text-[1.45rem] font-extrabold text-[#222] mb-2 leading-tight">
-            DashPass is delivery for less
-          </h1>
-          <p className="text-[1rem] text-[#252525] mb-4 leading-normal">
-            Members get a $0 delivery fee on DashPass orders, 5% back on pickup orders, and so much more. Plus, it's free for 30 days.
-          </p>
-          <div className="w-full flex justify-start">
-            <button className={BUTTON_DASHPASS} {...BUTTON_PROPS}>
-              Get DashPass
-            </button>
+      {/* DashPass Card */}
+      <div className={cardOuter}>
+        <div className={`${cardBase} ${cardMobileMax}`}>
+          <div className="w-full md:w-1/2 h-[130px] xs:h-[160px] sm:h-[210px] md:h-[240px] flex-shrink-0">
+            <img
+              src={dashPassImg}
+              alt="DashPass Banner"
+              className="w-full h-full object-cover object-center block"
+              draggable={false}
+            />
+          </div>
+          <div className={`w-full md:w-1/2 ${textPadding}`}>
+            <div className="max-w-[520px] w-full">
+              <h1 className="text-[1.1rem] xs:text-[1.19rem] sm:text-[1.28rem] md:text-[1.45rem] font-extrabold text-[#222] antialiased mb-2 leading-tight">
+                DashPass is delivery for less
+              </h1>
+              <p className="text-[0.99rem] xs:text-[1.05rem] sm:text-[1.1rem] text-[#252525] mb-4 leading-normal">
+                Members get a $0 delivery fee on DashPass orders, 5% back on pickup orders, and so much more. Plus, it's free for 30 days.
+              </p>
+              <div className="w-full flex justify-start mt-2">
+                <button className={BUTTON_DASHPASS} {...BUTTON_PROPS}>
+                  Get DashPass
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    {/* SHOP GROCERIES CARD - Full Width */}
-    <div className="relative w-full mt-10 flex justify-center">
-      {/* Container ini width 100vw agar image full-bleed */}
-      <div className="relative w-screen left-1/2 right-1/2 -translate-x-1/2 overflow-hidden min-h-[270px] md:min-h-[330px]">
+    {/* SHOP GROCERIES CARD */}
+    <div className="relative w-full mt-12 flex justify-center px-4 sm:px-6 md:px-8">
+      <div className="relative w-full max-w-screen-xl overflow-hidden min-h-[270px] md:min-h-[330px] rounded-2xl">
         <img
           src={groceryImg}
           alt="Groceries"
-          className="absolute w-full h-full object-cover object-center inset-0"
+          className="absolute w-full h-full object-cover object-center inset-0 block"
           draggable={false}
-          style={{ display: "block", zIndex: 1 }}
         />
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/40 z-10" />
-        {/* TEXT + BUTTON */}
+        <div className="absolute inset-0 bg-black/40 z-10 rounded-2xl" />
         <div className="relative z-20 flex flex-col justify-center items-center px-4 py-7 text-center min-h-[270px] md:min-h-[330px]">
-          <h1 className="text-[1.18rem] sm:text-[1.42rem] font-extrabold text-[#FFFFFF] mb-1 leading-snug drop-shadow-lg">
+          <h1 className="text-[1.18rem] sm:text-[1.42rem] font-extrabold text-[#FFFFFF] mb-1 leading-snug drop-shadow-lg antialiased">
             Get grocery and convenience store essentials
           </h1>
-          <h2 className="text-[1.02rem] sm:text-[1.14rem] font-semibold text-[#FFFFFF] mb-1 drop-shadow-lg">
+          <h2 className="text-[1.02rem] sm:text-[1.14rem] font-semibold text-[#FFFFFF] mb-1 drop-shadow-lg antialiased">
             Grocery delivery, exactly how you want it.
           </h2>
           <p className="text-[0.93rem] text-[#FFFFFF] mb-4 leading-tight drop-shadow-md max-w-[410px]">
