@@ -1,89 +1,124 @@
 // src/components/moments/MomentCard.jsx
-import React from "react";
+import React, { useEffect, useState } from 'react';
+
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== 'undefined' ? window.innerWidth <= 768 : false
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize(); // Initialize on mount
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return isMobile;
+};
 
 const MomentCard = ({
-  image,
-  alt,
   title,
-  subtitle,
   description,
+  image,
   buttonText,
-  buttonClass,
+  isReversed = false,
+  buttonClass = '',
   buttonProps = {},
-  overlay = false,
 }) => {
+  const isMobile = useIsMobile();
+
+  const flexDirection = isMobile ? 'column' : isReversed ? 'row-reverse' : 'row';
+  const imageBorderRadius = isMobile
+    ? '20px 20px 0 0'
+    : isReversed
+    ? '20px 0 0 20px'
+    : '0 20px 20px 0';
+
   return (
-    <div className="w-full flex justify-center">
-      <div className="bg-[#FFF5F0] rounded-2xl shadow-lg border border-[#fff6ed] overflow-hidden flex flex-col md:flex-row w-full max-w-[1000px] px-0 relative">
-        {overlay ? (
-          <>
-            <img
-              src={image}
-              alt={alt}
-              className="absolute w-full h-full object-cover object-center inset-0"
-              draggable={false}
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-black/60 z-10 rounded-2xl" />
-            <div className="relative z-20 flex flex-col justify-center items-center px-4 py-7 text-center min-h-[270px] md:min-h-[330px]">
-              <h1
-                className="text-[1.18rem] sm:text-[1.42rem] font-extrabold mb-1 leading-snug drop-shadow-lg antialiased"
-                style={{ color: "white" }}
-              >
-                {title}
-              </h1>
-              {subtitle && (
-                <h2
-                  className="text-[1.02rem] sm:text-[1.14rem] font-semibold mb-1 drop-shadow-lg antialiased"
-                  style={{ color: "white" }}
-                >
-                  {subtitle}
-                </h2>
-              )}
-              <p
-                className="text-[0.93rem] mb-4 leading-tight drop-shadow-md max-w-[410px]"
-                style={{ color: "white" }}
-              >
-                {description}
-              </p>
-              <button className={buttonClass} {...buttonProps}>
-                {buttonText}
-              </button>
-            </div>
-          </>
-        ) : (
-          <>
-            <div className="w-full md:w-1/2 h-[180px] xs:h-[210px] sm:h-[240px] md:h-[290px] flex-shrink-0">
-              <img
-                src={image}
-                alt={alt}
-                className="w-full h-full object-cover object-center block"
-                draggable={false}
-                loading="lazy"
-              />
-            </div>
-            <div className="w-full md:w-1/2 flex flex-col justify-center px-6 py-7 md:px-8 md:py-10">
-              <div className="max-w-[520px] w-full">
-                <h1 className="text-[1.3rem] xs:text-[1.55rem] sm:text-[1.7rem] md:text-[2rem] font-extrabold text-[#222] mb-2 leading-tight">
-                  {title}
-                </h1>
-                {subtitle && (
-                  <h2 className="text-[1.1rem] xs:text-[1.18rem] sm:text-[1.22rem] md:text-[1.3rem] font-bold text-[#222] mb-2">
-                    {subtitle}
-                  </h2>
-                )}
-                <p className="text-[0.97rem] xs:text-[1.04rem] sm:text-[1.09rem] text-[#454545] mb-4">
-                  {description}
-                </p>
-                <div className="w-full flex justify-start mt-2">
-                  <button className={buttonClass} {...buttonProps}>
-                    {buttonText}
-                  </button>
-                </div>
-              </div>
-            </div>
-          </>
-        )}
+    <div
+      className="moment-card"
+      style={{
+        display: 'flex',
+        flexDirection,
+        flexWrap: 'wrap',
+        overflow: 'hidden',
+        borderRadius: '20px',
+        marginBottom: '20px',
+        backgroundColor: '#fff',
+        boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+      }}
+    >
+      {/* Image */}
+      <div
+        className="moment-image"
+        style={{
+          width: isMobile ? '100%' : '45%',
+          height: isMobile ? '220px' : '280px',
+        }}
+      >
+        <img
+          src={image}
+          alt={title}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center',
+            borderRadius: imageBorderRadius,
+            transition: 'transform 0.3s ease-in-out',
+          }}
+        />
+      </div>
+
+      {/* Text */}
+      <div
+        className="moment-text"
+        style={{
+          flex: 1,
+          width: isMobile ? '100%' : '55%',
+          maxWidth: '700px',
+          margin: '0 auto',
+          boxSizing: 'border-box',
+          paddingTop: '1.25rem',
+          paddingBottom: '1.25rem',
+          paddingLeft: isMobile ? '1.25rem' : 'clamp(1.5rem, 2vw, 2.5rem)',
+          paddingRight: isMobile ? '1.25rem' : 'clamp(1.5rem, 2vw, 2.5rem)',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'flex-start',
+          overflowWrap: 'break-word',
+          wordWrap: 'break-word',
+          wordBreak: 'break-word',
+        }}
+      >
+        <h2
+          style={{
+            fontSize: 'clamp(1.25rem, 4vw, 1.6rem)',
+            fontWeight: 'bold',
+            marginBottom: '12px',
+            lineHeight: '1.35',
+            textAlign: 'left',
+          }}
+        >
+          {title}
+        </h2>
+        <p
+          style={{
+            fontSize: 'clamp(0.95rem, 2.5vw, 1rem)',
+            color: '#555',
+            lineHeight: '1.55',
+            marginBottom: '20px',
+            textAlign: 'left',
+          }}
+        >
+          {description}
+        </p>
+        <button className={buttonClass} {...buttonProps}>
+          {buttonText}
+        </button>
       </div>
     </div>
   );
