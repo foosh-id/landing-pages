@@ -1,11 +1,10 @@
-// src/components/moments/MomentsSection.jsx
 import React, { useEffect, useState } from 'react';
 import MomentCard from './MomentCard';
 
-import picnicImage from '../../assets/moments/picnic.png';
+import picnicImage from '../../assets/moments/picnic-0.png';
 import picnic2Image from '../../assets/moments/fooshx.png';
-import picnic3Image from '../../assets/moments/picnic-3.avif';
-import groceryBannerImg from '../../assets/moments/grocery.png';
+import picnic3Image from '../../assets/moments/shop-now.png';
+import groceryBannerImg from '../../assets/moments/shop-glocery.png';
 
 const BUTTON_FIND = `
   inline-flex items-center justify-center
@@ -89,6 +88,14 @@ const momentsData = [
     buttonText: 'Get DashPass',
     buttonClass: BUTTON_DASHPASS,
   },
+  {
+    title: 'Get grocery and convenience store essentials',
+    description:
+      'Shop from home and fill your cart with fresh produce.',
+    image: picnic3Image,
+    buttonText: 'Shop Groceries',
+    buttonClass: BUTTON_GROCERIES,
+  },
 ];
 
 // Hook to detect mobile view
@@ -118,18 +125,7 @@ const MomentsSection = () => {
         className="moments-section"
         style={{ padding: '40px', maxWidth: '1200px', margin: '0 auto' }}
       >
-        <h1
-          style={{
-            fontSize: '2.5rem',
-            fontWeight: 'bold',
-            marginBottom: '40px',
-            textAlign: 'center',
-          }}
-        >
-          Moments
-        </h1>
-
-        {/* Standard Cards */}
+        {/* Moments cards (without section heading) */}
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           {momentsData.map((moment, index) => (
             <MomentCard
@@ -199,90 +195,6 @@ const MomentsSection = () => {
               Shop Groceries
             </button>
           </div>
-        </div>
-      </div>
-
-      {/* Final Grocery Essentials Card - Responsive */}
-      <div
-        className="moment-card"
-        style={{
-          display: 'flex',
-          flexDirection: isMobile ? 'column' : 'row',
-          flexWrap: 'wrap',
-          overflow: 'hidden',
-          borderRadius: '20px',
-          margin: '40px auto',
-          backgroundColor: '#fff',
-          boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
-          maxWidth: '1180px',
-        }}
-      >
-        {/* Image */}
-        <div
-          className="moment-image"
-          style={{
-            width: isMobile ? '100%' : '45%',
-            height: isMobile ? '220px' : '280px',
-          }}
-        >
-          <img
-            src={picnic3Image}
-            alt="Groceries"
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              objectPosition: 'center',
-              borderRadius: isMobile ? '20px 20px 0 0' : '0 20px 20px 0',
-              transition: 'transform 0.3s ease-in-out',
-            }}
-          />
-        </div>
-
-        {/* Text */}
-        <div
-          className="moment-text"
-          style={{
-            flex: 1,
-            width: isMobile ? '100%' : '55%',
-            maxWidth: '700px',
-            margin: '0 auto',
-            boxSizing: 'border-box',
-            paddingTop: '1.25rem',
-            paddingBottom: '1.25rem',
-            paddingLeft: isMobile ? '1.25rem' : 'clamp(1.5rem, 2vw, 2.5rem)',
-            paddingRight: isMobile ? '1.25rem' : 'clamp(1.5rem, 2vw, 2.5rem)',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-start',
-            overflowWrap: 'break-word',
-          }}
-        >
-          <h2
-            style={{
-              fontSize: 'clamp(1.25rem, 4vw, 1.6rem)',
-              fontWeight: 'bold',
-              marginBottom: '12px',
-              lineHeight: '1.35',
-              textAlign: 'left',
-            }}
-          >
-            Get grocery and convenience store essentials
-          </h2>
-          <p
-            style={{
-              fontSize: 'clamp(0.95rem, 2.5vw, 1rem)',
-              color: '#555',
-              lineHeight: '1.55',
-              marginBottom: '20px',
-              textAlign: 'left',
-            }}
-          >
-            Shop from home and fill your cart with fresh produce.
-          </p>
-          <button className={BUTTON_GROCERIES} {...BUTTON_PROPS}>
-            Shop Groceries
-          </button>
         </div>
       </div>
     </>
