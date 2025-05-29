@@ -12,7 +12,7 @@ const serviceItems = [
     title: 'Return packages from home',
     description: 'Request a package pickup with just a few taps and get your returns dropped off at carriers like UPS, FedEx, and USPS.',
     buttonText: 'Try Package Pickup',
-    onClick: () => {}, // your logic
+    onClick: () => {},
   },
   {
     image: imgFlowers,

@@ -4,6 +4,7 @@ import Footer from "./components/layout/Footer";
 import HeroSection from "./components/sections/HeroSection";
 import HowItWorksSection from "./components/sections/HowItWorks";
 import MomentsSection from './components/moments/MomentsSection';
+import ServiceGrid from './components/services/ServiceGrid';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <HeroSection />
         <HowItWorksSection />
                 <MomentsSection />
+                <ServiceGrid />
       </main>
       <Footer />
     </div>
