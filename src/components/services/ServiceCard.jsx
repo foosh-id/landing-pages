@@ -1,62 +1,37 @@
-// src/components/moments/MomentCard.jsx
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-const useIsMobile = () => {
-  const [isMobile, setIsMobile] = useState(
-    typeof window !== 'undefined' ? window.innerWidth <= 768 : false
-  );
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    handleResize(); // Initialize on mount
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  return isMobile;
-};
-
-const MomentCard = ({
+const ServiceCard = ({
   title,
   description,
   image,
   buttonText,
-  isReversed = false,
   buttonClass = '',
   buttonProps = {},
 }) => {
-  const isMobile = useIsMobile();
-
-  const flexDirection = isMobile ? 'column' : isReversed ? 'row-reverse' : 'row';
-  const imageBorderRadius = isMobile
-    ? '20px 20px 0 0'
-    : isReversed
-    ? '20px 0 0 20px'
-    : '0 20px 20px 0';
+  const isMobile =
+    typeof window !== 'undefined' ? window.innerWidth <= 768 : false;
 
   return (
     <div
-      className="moment-card"
+      className="service-card"
       style={{
         display: 'flex',
-        flexDirection,
-        flexWrap: 'wrap',
+        flexDirection: 'column',
         overflow: 'hidden',
         borderRadius: '20px',
-        marginBottom: '20px',
         backgroundColor: '#fff',
         boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+        height: '100%',
+        marginBottom: '12px',
+        padding: isMobile ? '4px' : '0', // 🆕 extra breathing space for mobile
       }}
     >
       {/* Image */}
       <div
-        className="moment-image"
+        className="service-image"
         style={{
-          width: isMobile ? '100%' : '45%',
-          height: isMobile ? '220px' : '280px',
+          width: '100%',
+          height: isMobile ? '200px' : '260px', // 🆕 smaller on mobile
         }}
       >
         <img
@@ -67,55 +42,46 @@ const MomentCard = ({
             height: '100%',
             objectFit: 'cover',
             objectPosition: 'center',
-            borderRadius: imageBorderRadius,
-            transition: 'transform 0.3s ease-in-out',
+            borderRadius: '20px 20px 0 0',
           }}
         />
       </div>
 
       {/* Text */}
       <div
-        className="moment-text"
+        className="service-text"
         style={{
-          flex: 1,
-          width: isMobile ? '100%' : '55%',
-          maxWidth: '700px',
-          margin: '0 auto',
-          boxSizing: 'border-box',
-          paddingTop: '1.25rem',
-          paddingBottom: '1.25rem',
-          paddingLeft: isMobile ? '1.25rem' : 'clamp(1.5rem, 2vw, 2.5rem)',
-          paddingRight: isMobile ? '1.25rem' : 'clamp(1.5rem, 2vw, 2.5rem)',
+          padding: '1.5rem',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'flex-start',
-          overflowWrap: 'break-word',
-          wordWrap: 'break-word',
-          wordBreak: 'break-word',
+          justifyContent: 'space-between',
+          flex: 1,
         }}
       >
-        <h2
-          style={{
-            fontSize: 'clamp(1.25rem, 4vw, 1.6rem)',
-            fontWeight: 'bold',
-            marginBottom: '12px',
-            lineHeight: '1.35',
-            textAlign: 'left',
-          }}
-        >
-          {title}
-        </h2>
-        <p
-          style={{
-            fontSize: 'clamp(0.95rem, 2.5vw, 1rem)',
-            color: '#555',
-            lineHeight: '1.55',
-            marginBottom: '20px',
-            textAlign: 'left',
-          }}
-        >
-          {description}
-        </p>
+        <div>
+          <h2
+            style={{
+              fontSize: 'clamp(1.25rem, 4vw, 1.6rem)',
+              fontWeight: 'bold',
+              marginBottom: '12px',
+              lineHeight: '1.35',
+              textAlign: 'left',
+            }}
+          >
+            {title}
+          </h2>
+          <p
+            style={{
+              fontSize: 'clamp(0.95rem, 2.5vw, 1rem)',
+              color: '#555',
+              lineHeight: '1.55',
+              marginBottom: '20px',
+              textAlign: 'left',
+            }}
+          >
+            {description}
+          </p>
+        </div>
         <button className={buttonClass} {...buttonProps}>
           {buttonText}
         </button>
@@ -124,4 +90,4 @@ const MomentCard = ({
   );
 };
 
-export default MomentCard;
+export default ServiceCard;
