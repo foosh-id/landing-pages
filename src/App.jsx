@@ -6,6 +6,8 @@ import HeroSection from "./components/sections/HeroSection";
 import HowItWorksSection from "./components/sections/HowItWorks";
 import MomentsSection from './components/moments/MomentsSection';
 import ServiceGrid from './components/services/ServiceGrid';
+import PartnerSection from './components/partners/PartnerSection';
+
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
         <HowItWorksSection />
         <MomentsSection />
         <ServiceGrid />
+        <PartnerSection />
       </main>
       <Footer />
     </div>
