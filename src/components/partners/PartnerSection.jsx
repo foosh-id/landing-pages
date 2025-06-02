@@ -70,8 +70,8 @@ const PartnerSection = () => {
       style={{
         paddingTop: isMobile ? '12px' : '20px',
         paddingBottom: isMobile ? '20px' : '30px',
-        paddingLeft: '20px',
-        paddingRight: '20px',
+        paddingLeft: '40px',
+        paddingRight: '40px',
         maxWidth: '1200px',
         margin: '0 auto',
       }}
