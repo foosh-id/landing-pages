@@ -1,3 +1,4 @@
+// src/components/partners/PartnerSection.jsx
 import React, { useEffect, useState } from 'react';
 import PartnerCard from './PartnerCard';
 import groceryBannerImg from '../../assets/partners/partner-cta.png';
@@ -51,9 +52,7 @@ const useIsMobile = () => {
   );
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -68,9 +67,25 @@ const PartnerSection = () => {
   return (
     <div
       className="partners-section"
-      style={{ padding: '40px', maxWidth: '1200px', margin: '0 auto' }}
+      style={{
+        paddingTop: isMobile ? '24px' : '40px',
+        paddingBottom: isMobile ? '40px' : '60px',
+        paddingLeft: '20px',
+        paddingRight: '20px',
+        maxWidth: '1200px',
+        margin: '0 auto',
+      }}
     >
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <h3
+        className="text-center font-semibold mb-8"
+        style={{
+          fontSize: 'clamp(1.25rem, 2.8vw, 1.6rem)',
+        }}
+      >
+        Unlocking opportunity for Dashers and businesses
+      </h3>
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
         {partnersData.map((partner, index) => (
           <PartnerCard
             key={index}

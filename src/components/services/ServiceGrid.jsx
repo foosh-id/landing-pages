@@ -123,7 +123,9 @@ const ServiceGrid = () => {
     <div
       className="services-section"
       style={{
-        padding: isMobile ? '32px 16px 60px' : '40px 20px 80px', // 🆕 more relaxed on mobile
+        // padding: isMobile ? '32px 16px 60px' : '40px 20px 80px',
+        // padding: isMobile ? '32px 16px 20px' : '40px 20px 26px',
+        padding: isMobile ? '24px 16px 10px' : '32px 20px 18px',
         maxWidth: '1200px',
         margin: '0 auto',
       }}
