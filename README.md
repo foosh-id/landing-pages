@@ -1,6 +1,6 @@
 # 🍔 Foosh Landing Page
 
-This is a simple and modern landing page built with **React**, **Vite**, and **Tailwind CSS**.
+A clean, responsive, and modern landing page built with **React**, **Vite**, and **Tailwind CSS**.
 
 ---
 
@@ -8,68 +8,66 @@ This is a simple and modern landing page built with **React**, **Vite**, and **T
 
 ```
 landing-pages-main
-├── public                  # Public files (favicon, icons, etc.)
-├── src                     # Main source code
-│   ├── assets              # Images and other static files
+├── public                  # Static files (favicon, etc.)
+├── src                     # Main application source code
+│   ├── assets              # All static images and media
 │   │   ├── logos
 │   │   ├── moments
 │   │   ├── services
-│   │   └── howitworks
-│   ├── components          # Reusable React components
-│   │   ├── layout          # Header and Footer components
-│   │   ├── moments         # Moment cards UI components
-│   │   ├── sections        # Hero and How it Works sections
-│   │   └── services        # Services UI components
-│   ├── styles              # Tailwind CSS and custom styles
-│   ├── App.jsx             # Main React component
-│   └── main.jsx            # Entry point of the application
-├── vite.config.js          # Vite configuration
-├── tailwind.config.js      # Tailwind CSS configuration
-├── postcss.config.js       # PostCSS configuration
-├── eslint.config.js        # ESLint configuration (for code quality)
-├── package.json            # Project dependencies & scripts
+│   │   ├── howitworks
+│   │   └── partners
+│   ├── components          # Modular React components
+│   │   ├── layout          # Header and Footer
+│   │   ├── moments         # MomentCard & MomentsSection
+│   │   ├── sections        # HeroSection, HowItWorks, etc.
+│   │   ├── services        # ServiceCard & ServiceGrid
+│   │   └── partners        # PartnerCard & PartnerSection
+│   ├── styles              # Global Tailwind and custom styles
+│   ├── App.jsx             # Root app component
+│   └── main.jsx            # Application entry point
+├── vite.config.js          # Vite config
+├── tailwind.config.js      # Tailwind CSS setup
+├── postcss.config.js       # PostCSS config
+├── eslint.config.js        # ESLint rules for code quality
+├── package.json            # Project dependencies and scripts
 └── README.md               # Documentation for the project
 ```
 
 ---
 
-## 🛠️ Tech Used
+## 🛠️ Tech Stack
 
-* **React** (JavaScript UI library)
-* **Vite** (Fast build tool)
-* **Tailwind CSS** (Simple and fast styling framework)
-
----
-
-## 💡 Project Features
-
-* Easy to maintain and extend components.
-* Responsive design (works well on mobile and desktop).
-* Clear and clean layout.
+* **React** – For building UI components
+* **Vite** – For fast local development
+* **Tailwind CSS** – For utility-first styling
 
 ---
 
-## 🚦 How to Run the Project
+## 💡 Features
 
-### Install Dependencies
+✅ Clean component structure
+✅ Responsive layout (mobile & desktop)
+✅ Easy to scale and customize
+✅ Tailwind-first, minimal custom CSS
+✅ Reusable sections and cards (Moments, Services, Partners, etc.)
 
-Open your terminal and run:
+---
+
+## 🚦 Getting Started
+
+### 1. Install dependencies
 
 ```bash
 npm install
 ```
 
-### Run Project Locally
-
-Start the development server:
+### 2. Run the development server
 
 ```bash
 npm run dev
 ```
 
-### Build for Production
-
-Create a production build:
+### 3. Build for production
 
 ```bash
 npm run build
@@ -79,8 +77,6 @@ npm run build
 
 ## 📐 Architecture Diagram
 
-Here’s a simple architecture diagram showing how the project is structured:
-
 ```mermaid
 graph TD
     main.jsx --> App.jsx
@@ -88,32 +84,43 @@ graph TD
     App.jsx --> Sections(HeroSection.jsx, HowItWorks.jsx)
     App.jsx --> MomentsSection.jsx --> MomentCard.jsx
     App.jsx --> ServiceGrid.jsx --> ServiceCard.jsx
-    Components --> Assets[Images & Static Files]
-    Styles --> TailwindCSS[Tailwind CSS]
+    App.jsx --> PartnerSection.jsx --> PartnerCard.jsx
+    Components --> Assets[Images & Media Files]
+    Styles --> TailwindCSS[Tailwind Utility Framework]
 ```
 
 ---
 
 ## ✅ Best Practices
 
-* Use Tailwind classes as much as possible.
-* Keep components reusable and organized.
-* Do not write fixed content; use dynamic props instead.
+* Use Tailwind utility classes where possible.
+* Structure code into clear component folders.
+* Pass dynamic content using props.
+* Keep UI components stateless unless necessary.
+* Stick to naming conventions across all sections (e.g. `MomentCard`, `ServiceGrid`, `PartnerSection`, etc.)
 
 ---
 
-## 🚀 How to Contribute
+## 🚀 Contributing
 
-* Clone this repository and create a new branch.
-* Follow ESLint rules to maintain code quality.
-* Submit your changes as a Pull Request.
+1. Fork or clone this repository.
+2. Create a feature branch (`feat/your-feature-name`).
+3. Make your changes and commit with clear messages.
+4. Submit a Pull Request for review.
+
+---
+
+## 🧠 Ideas for Improvement
+
+* Add unit tests using React Testing Library.
+* Integrate a CMS (like Sanity or Strapi) for dynamic content.
+* Add dark mode support.
+* Use React Router for multi-page navigation.
 
 ---
 
 ## 📞 Need Help?
 
-If you have questions, please contact the frontend development team.
+Feel free to reach out to the frontend development team on Slack or drop an issue in the repo.
 
 ---
-
-🎉 **Enjoy building the Foosh Landing Page!**
