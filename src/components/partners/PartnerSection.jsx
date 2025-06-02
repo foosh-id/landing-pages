@@ -68,16 +68,15 @@ const PartnerSection = () => {
     <div
       className="partners-section"
       style={{
-        paddingTop: isMobile ? '24px' : '40px',
-        paddingBottom: isMobile ? '40px' : '60px',
+        paddingTop: isMobile ? '12px' : '20px',
+        paddingBottom: isMobile ? '20px' : '30px',
         paddingLeft: '20px',
         paddingRight: '20px',
         maxWidth: '1200px',
         margin: '0 auto',
       }}
     >
-      <h3
-        className="text-center font-semibold mb-8"
+      <h3 className="text-center font-semibold mb-4"
         style={{
           fontSize: 'clamp(1.25rem, 2.8vw, 1.6rem)',
         }}
@@ -85,16 +84,43 @@ const PartnerSection = () => {
         Unlocking opportunity for Dashers and businesses
       </h3>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-        {partnersData.map((partner, index) => (
-          <PartnerCard
-            key={index}
-            isReversed={index % 2 !== 0}
-            buttonProps={BUTTON_PROPS}
-            {...partner}
-          />
-        ))}
-      </div>
+      {isMobile ? (
+        <div
+          className="flex flex-col"
+          style={{
+            boxSizing: 'border-box',
+            width: '100%',
+          }}
+        >
+          {partnersData.map((partner, index) => (
+            <div
+              key={index}
+              style={{
+                boxSizing: 'border-box',
+                paddingBottom: '8px',
+              }}
+            >
+              <PartnerCard
+                key={index}
+                isReversed={index % 2 !== 0}
+                buttonProps={BUTTON_PROPS}
+                {...partner}
+              />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          {partnersData.map((partner, index) => (
+            <PartnerCard
+              key={index}
+              isReversed={index % 2 !== 0}
+              buttonProps={BUTTON_PROPS}
+              {...partner}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

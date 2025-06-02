@@ -123,23 +123,19 @@ const ServiceGrid = () => {
     <div
       className="services-section"
       style={{
-        // padding: isMobile ? '32px 16px 60px' : '40px 20px 80px',
-        // padding: isMobile ? '32px 16px 20px' : '40px 20px 26px',
-        padding: isMobile ? '24px 16px 10px' : '32px 20px 18px',
+        padding: isMobile ? '12px 8px 5px' : '16px 10px 9px',
         maxWidth: '1200px',
         margin: '0 auto',
       }}
     >
-      <h2 className="text-center text-3xl font-bold mb-10">
+      <h2 className="text-center text-3xl font-bold mb-4">
         Helping you with to-dos and gifting
       </h2>
 
       {isMobile ? (
         <div
-          className="flex gap-4 overflow-x-auto"
+          className="flex flex-col"
           style={{
-            scrollSnapType: 'x mandatory',
-            WebkitOverflowScrolling: 'touch',
             padding: '0 8px',
             boxSizing: 'border-box',
             width: '100%',
@@ -149,12 +145,8 @@ const ServiceGrid = () => {
             <div
               key={index}
               style={{
-                minWidth: '100%',
-                maxWidth: '100%',
-                scrollSnapAlign: 'start',
-                flexShrink: 0,
                 boxSizing: 'border-box',
-                paddingRight: index !== servicesData.length - 1 ? '8px' : '0',
+                paddingBottom: '8px',
               }}
             >
               <ServiceCard {...service} buttonProps={BUTTON_PROPS} />
