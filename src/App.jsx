@@ -1,3 +1,4 @@
+// src/App.jsx
 import React from 'react';
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
@@ -13,8 +14,8 @@ function App() {
       <main className="max-w-7xl mx-auto py-6">
         <HeroSection />
         <HowItWorksSection />
-                <MomentsSection />
-                <ServiceGrid />
+        <MomentsSection />
+        <ServiceGrid />
       </main>
       <Footer />
     </div>

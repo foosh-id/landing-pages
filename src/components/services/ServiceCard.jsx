@@ -1,11 +1,6 @@
-// src/components/services/ServiceCard.jsx
+// src/components/moments/MomentCard.jsx
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 
-/**
- * Hook to detect mobile vs. desktop.
- * (Same pattern you used in MomentCard.jsx)
- */
 const useIsMobile = () => {
   const [isMobile, setIsMobile] = useState(
     typeof window !== 'undefined' ? window.innerWidth <= 768 : false
@@ -15,7 +10,8 @@ const useIsMobile = () => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-    handleResize();
+
+    handleResize(); // Initialize on mount
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -23,68 +19,109 @@ const useIsMobile = () => {
   return isMobile;
 };
 
-// Button styling constant, modeled after your Moments code’s BUTTON_FIND
-const BUTTON_RED = `
-  inline-flex items-center justify-center
-  font-bold text-white text-[1.1rem]
-  px-6 py-2.5
-  bg-red-600 hover:bg-red-700
-  transition duration-150
-  outline-none focus:outline-none
-  w-fit
-  rounded-full
-`;
-
-const ServiceCard = ({ image, alt, title, description, buttonText, isReversed = false }) => {
+const MomentCard = ({
+  title,
+  description,
+  image,
+  buttonText,
+  isReversed = false,
+  buttonClass = '',
+  buttonProps = {},
+}) => {
   const isMobile = useIsMobile();
 
-  // Determine flex direction (stack on mobile, else alternate left/right)
-  const flexDirection = isMobile
-    ? 'column'
-    : isReversed
-    ? 'row-reverse'
-    : 'row';
-
-  // Mirror your Moments code’s border‐radius logic
-  // On mobile: top corners rounded; on desktop: left or right side rounded
+  const flexDirection = isMobile ? 'column' : isReversed ? 'row-reverse' : 'row';
   const imageBorderRadius = isMobile
-    ? 'rounded-t-[20px]'
+    ? '20px 20px 0 0'
     : isReversed
-    ? 'rounded-l-[20px]'
-    : 'rounded-r-[20px]';
+    ? '20px 0 0 20px'
+    : '0 20px 20px 0';
 
   return (
     <div
-      className={`flex overflow-hidden mb-12 bg-white shadow-md`}
-      style={{ flexDirection, borderRadius: '20px' }}
+      className="moment-card"
+      style={{
+        display: 'flex',
+        flexDirection,
+        flexWrap: 'wrap',
+        overflow: 'hidden',
+        borderRadius: '20px',
+        marginBottom: '20px',
+        backgroundColor: '#fff',
+        boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+      }}
     >
-      {/* Image section */}
-      <div className={`w-full md:w-1/2 h-[220px] md:h-[280px] overflow-hidden ${imageBorderRadius}`}>
+      {/* Image */}
+      <div
+        className="moment-image"
+        style={{
+          width: isMobile ? '100%' : '45%',
+          height: isMobile ? '220px' : '280px',
+        }}
+      >
         <img
           src={image}
-          alt={alt || title}
-          className="w-full h-full object-cover object-center"
-          loading="lazy"
+          alt={title}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center',
+            borderRadius: imageBorderRadius,
+            transition: 'transform 0.3s ease-in-out',
+          }}
         />
       </div>
 
-      {/* Text & button section */}
-      <div className="w-full md:w-1/2 p-6 md:p-10 flex flex-col justify-center">
-        <h3 className="text-2xl font-extrabold text-gray-900 mb-4">{title}</h3>
-        <p className="text-gray-700 mb-6">{description}</p>
-        <button className={BUTTON_RED.trim()}>{buttonText}</button>
+      {/* Text */}
+      <div
+        className="moment-text"
+        style={{
+          flex: 1,
+          width: isMobile ? '100%' : '55%',
+          maxWidth: '700px',
+          margin: '0 auto',
+          boxSizing: 'border-box',
+          paddingTop: '1.25rem',
+          paddingBottom: '1.25rem',
+          paddingLeft: isMobile ? '1.25rem' : 'clamp(1.5rem, 2vw, 2.5rem)',
+          paddingRight: isMobile ? '1.25rem' : 'clamp(1.5rem, 2vw, 2.5rem)',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'flex-start',
+          overflowWrap: 'break-word',
+          wordWrap: 'break-word',
+          wordBreak: 'break-word',
+        }}
+      >
+        <h2
+          style={{
+            fontSize: 'clamp(1.25rem, 4vw, 1.6rem)',
+            fontWeight: 'bold',
+            marginBottom: '12px',
+            lineHeight: '1.35',
+            textAlign: 'left',
+          }}
+        >
+          {title}
+        </h2>
+        <p
+          style={{
+            fontSize: 'clamp(0.95rem, 2.5vw, 1rem)',
+            color: '#555',
+            lineHeight: '1.55',
+            marginBottom: '20px',
+            textAlign: 'left',
+          }}
+        >
+          {description}
+        </p>
+        <button className={buttonClass} {...buttonProps}>
+          {buttonText}
+        </button>
       </div>
     </div>
   );
 };
 
-ServiceCard.propTypes = {
-  image: PropTypes.string.isRequired,
-  alt: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  buttonText: PropTypes.string.isRequired,
-  isReversed: PropTypes.bool,
-};
-
-export default ServiceCard;
+export default MomentCard;
