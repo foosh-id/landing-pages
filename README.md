@@ -127,7 +127,3 @@ graph TD
 ## 📞 Need Help?
 
 Feel free to reach out to the frontend development team on Slack or drop an issue in the repo.
-
-```
-
----
