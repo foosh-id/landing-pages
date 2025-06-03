@@ -7,7 +7,8 @@ A clean, responsive, and modern landing page built with **React**, **Vite**, and
 ## 📂 Project Structure
 
 ```
-landing-pages-main
+
+landing-pages
 ├── public                  # Static files (favicon, etc.)
 ├── src                     # Main application source code
 │   ├── assets              # All static images and media
@@ -15,13 +16,15 @@ landing-pages-main
 │   │   ├── moments
 │   │   ├── services
 │   │   ├── howitworks
-│   │   └── partners
+│   │   ├── partners
+│   │   └── discover        # Images for Discover section
 │   ├── components          # Modular React components
 │   │   ├── layout          # Header and Footer
 │   │   ├── moments         # MomentCard & MomentsSection
-│   │   ├── sections        # HeroSection, HowItWorks, etc.
 │   │   ├── services        # ServiceCard & ServiceGrid
-│   │   └── partners        # PartnerCard & PartnerSection
+│   │   ├── partners        # PartnerCard & PartnerSection
+│   │   ├── discover        # DiscoverTabs, DiscoverList & DiscoverSection
+│   │   └── sections        # HeroSection, HowItWorks, etc.
 │   ├── styles              # Global Tailwind and custom styles
 │   ├── App.jsx             # Root app component
 │   └── main.jsx            # Application entry point
@@ -31,7 +34,8 @@ landing-pages-main
 ├── eslint.config.js        # ESLint rules for code quality
 ├── package.json            # Project dependencies and scripts
 └── README.md               # Documentation for the project
-```
+
+````
 
 ---
 
@@ -45,11 +49,11 @@ landing-pages-main
 
 ## 💡 Features
 
-✅ Clean component structure
-✅ Responsive layout (mobile & desktop)
-✅ Easy to scale and customize
-✅ Tailwind-first, minimal custom CSS
-✅ Reusable sections and cards (Moments, Services, Partners, etc.)
+* Modular and clean component structure
+* Fully responsive design (mobile, tablet, desktop)
+* Easy to scale and customize
+* Utility-first styling with Tailwind CSS (minimal custom CSS)
+* Reusable UI sections: Moments, Services, Partners, Discover, and more
 
 ---
 
@@ -59,7 +63,7 @@ landing-pages-main
 
 ```bash
 npm install
-```
+````
 
 ### 2. Run the development server
 
@@ -85,6 +89,7 @@ graph TD
     App.jsx --> MomentsSection.jsx --> MomentCard.jsx
     App.jsx --> ServiceGrid.jsx --> ServiceCard.jsx
     App.jsx --> PartnerSection.jsx --> PartnerCard.jsx
+    App.jsx --> DiscoverSection.jsx --> DiscoverTabs.jsx --> DiscoverList.jsx
     Components --> Assets[Images & Media Files]
     Styles --> TailwindCSS[Tailwind Utility Framework]
 ```
@@ -97,7 +102,7 @@ graph TD
 * Structure code into clear component folders.
 * Pass dynamic content using props.
 * Keep UI components stateless unless necessary.
-* Stick to naming conventions across all sections (e.g. `MomentCard`, `ServiceGrid`, `PartnerSection`, etc.)
+* Stick to naming conventions across all sections (e.g. `MomentCard`, `ServiceGrid`, `PartnerSection`, `DiscoverTabs`, etc.)
 
 ---
 
@@ -122,5 +127,7 @@ graph TD
 ## 📞 Need Help?
 
 Feel free to reach out to the frontend development team on Slack or drop an issue in the repo.
+
+```
 
 ---
